@@ -1,0 +1,124 @@
+{
+    "shoes": [
+        {
+            "id": 1,
+            "name": "Wave 3000",
+            "price": "128.50 €",
+            "imgSrc": "./Assets/img/Shoes/aallot.png",
+            "bgGradient": [
+                "#FE7831",
+                "#FFDEBE"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Neon Graffiti",
+            "price": "160.99 €",
+            "imgSrc": "./Assets/img/Shoes/neonvalot.png",
+            "bgGradient": [
+                "#02BE83",
+                "#B3F6DC"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Halo 3000",
+            "price": "230.50 €",
+            "imgSrc": "./Assets/img/Shoes/bond3000.png",
+            "bgGradient": [
+                "#FF3C78",
+                "#FFB2B2"
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Speedrunner",
+            "price": "420.99 €",
+            "imgSrc": "./Assets/img/Shoes/keltahammas.png",
+            "bgGradient": [
+                "#8AA8F8",
+                "#315BFF"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Arctic Wanderer",
+            "price": "253.45 €",
+            "imgSrc": "./Assets/img/Shoes/huokoinen.png",
+            "bgGradient": [
+                "#27EC37",
+                "#CCEFBA"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Polar Bear",
+            "price": "442.46 €",
+            "imgSrc": "./Assets/img/Shoes/pehmo.png",
+            "bgGradient": [
+                "#E9EA55",
+                "#F7F7C1"
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Mountain Hiker",
+            "price": "202.37 €",
+            "imgSrc": "./Assets/img/Shoes/karvapohja.png",
+            "bgGradient": [
+                "#018F92",
+                "#C7C5C5"
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Unstoppable",
+            "price": "300.46 €",
+            "imgSrc": "./Assets/img/Shoes/simpukkatossu.png",
+            "bgGradient": [
+                "#9F2AFF",
+                "#B59DF1"
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Soft Luxury",
+            "price": "101.13 €",
+            "imgSrc": "./Assets/img/Shoes/aamutossu.png",
+            "bgGradient": [
+                "#2BFF5C",
+                "#B2D0A5"
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Grandfather 3000",
+            "price": "159.15 €",
+            "imgSrc": "./Assets/img/Shoes/modernipappa.png",
+            "bgGradient": [
+                "#F6FD14",
+                "#D9E2A5"
+            ]
+        },
+        {
+            "id": 11,
+            "name": "Glowing Star",
+            "price": "175.73 €",
+            "imgSrc": "./Assets/img/Shoes/elvis3000.png",
+            "bgGradient": [
+                "#E63A3A",
+                "#FFBABA"
+            ]
+        },
+        {
+            "id": 12,
+            "name": "Yellow Monolith",
+            "price": "178.89 €",
+            "imgSrc": "./Assets/img/Shoes/golfkenka.png",
+            "bgGradient": [
+                "#55B7D8",
+                "#B0D8D5"
+            ]
+        }
+    ]
+}

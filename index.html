@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-kenkäkauppa</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="./Assets/img/favicon.ico">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="./Assets/css/style.css">
+    <link rel="stylesheet" href="./Assets/css/phone.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <!-- icons  -->
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <audio id="myAudio">
+        <source src="./Assets/js/click.mp3" type="audio/mp3">
+    </audio>
+
+</head>
+<!-- sivun latautumisen aikana näytettävä animaatio -->
+<body onload="preLoader()">
+    <div id="loading" class="wrapper">
+        <div style='--i : 1; background-color : tomato' class="rect"></div>
+        <div style='--i : 2; background-color : #5037c9' class="rect"></div>
+        <div style='--i : 3; background-color : #1ae2ac' class="rect"></div>
+        <div style='--i : 4; background-color : #e29f1a' class="rect"></div>
+        <div style='--i : 5; background-color : #e21ab9' class="rect"></div>
+        <div style='--i : 6; background-color : #c395bf' class="rect"></div>
+        <div style='--i : 7; background-color : #4032bb' class="rect"></div>
+        <div style='--i : 8; background-color : #0fe0b7' class="rect"></div>
+    </div>
+
+    <div id="main">
+        <lottie-player id="lottie" class="lottie" src="https://assets3.lottiefiles.com/packages/lf20_Vwcw5D.json"
+            background="transparent" speed="1" autoplay loop></lottie-player>
+
+        <!-- "nuoli ylös" nappi  -->
+        <button onclick="topFunction()" id="myBtn" title="Takaisin ylös"><span class="material-symbols-outlined">
+                expand_less
+            </span></button>
+        <!-- "tuote lisätty ostoskoriin" ilmoitus-ruutu  -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img style="height: 20px" src="./Assets/img/add.ico" class="rounded me-2" alt="Logo">
+                    <strong class="me-auto">Lisätty</strong>
+                    <span style="padding: 4px 8px !important; font-size: 9px;"
+                        class="badge text-bg-success"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Tuote lisätty ostoskoriin
+                </div>
+            </div>
+        </div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToastDelete" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img style="height: 20px" src="./Assets/img/remove.ico" class="rounded me-2" alt="Logo">
+                    <strong class="me-auto">Poistettu</strong>
+                </div>
+                <div class="toast-body">
+                    Tuote poistettu ostoskorista
+                </div>
+            </div>
+        </div>
+        <!-- päämenu -->
+        <div id="section-1">
+            <nav>
+                <div class="logo">
+                    <a href="index.html"><img src="./Assets/img/logo.png" alt="logo"></a>
+                </div>
+                <ul class="nav-links">
+                    <a class="list" href="index.html">
+                        <li>Kaikki tuotteet</li>
+                    </a>
+                    <a class="list" href="#topProducts">
+                        <li>Suosituimmat</li>
+                    </a>
+                    <a class="list" href="#">
+                        <li>Tarjoukset</li>
+                    </a>
+                </ul>
+                <ul class="nav-icons">
+                    <a class="list" href="#">
+                        <li><img id="mode" style="height:36px ;" src="./Assets/img/moon.png" alt=""></li>
+                    </a>
+                    <a class="list" href="#">
+                        <li><span class="material-symbols-outlined">search</span></li>
+                    </a>
+                    <a class="list" href="#">
+                        <li><span class="material-symbols-outlined">person</span></li>
+                    </a>
+                    <a class="list" target="_self" href="#">
+                        <li onclick="showCartPage()"><span class="material-symbols-outlined">shopping_bag<span
+                                    id="cartCount" class="badge rounded-pill badge-notification bg-danger"></span>
+                            </span>
+                        </li>
+                    </a>
+                </ul>
+            </nav>
+            <div id="hiddenCartPage">
+
+                <!-- sivun yläosa -->
+                <div class="hero-box container">
+                    <div class="hero-text">
+                        <h1>Designed <span class="hero-text-span">by AI</span><br></h1>
+                        <p>Olemme maailman ensimmäinen kenkäkauppa joka myy tekoälyn suunnittelemia kenkiä. Osta nyt kun sinulla on vielä rahaa, kohta tekoäly vie sinunkin työpaikkasi!
+                        </p>
+                    </div>
+                    <div class="hero-image">
+                        <img src="./Assets/img/hero-image.png" alt="hero">
+                    </div>
+                </div>
+
+                <!-- esittelyssä olevat tuotteet  -->
+                <section class="container f-products">
+                    <div class="d-flex mb-3 f-product-head">
+                        <h1 class="fw-bolder">Suosituimmat mallit</h1>
+                        <p onclick="showTopShoes(0,12)" id="viewAll" class="d-flex flex-nowrap align-items-center">Näytä
+                            kaikki
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </p>
+                    </div>
+                    <div id="topProducts" class="top-products d-flex flex-wrap justify-content-around"></div>
+                </section>
+            </div>
+
+            <section style="display: none;" id="cart-container" class="container">
+                <div class="cart-head mb-5">
+                    <h1 class="fw-bolder">Ostoskori</h1>
+                </div>
+                <div class="cart-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="border-radius: 30px 0px 0px 30px;" scope="col">Tuote</th>
+                                <th scope="col">Määrä</th>
+                                <th style="border-radius: 0px 30px 30px 0px;" scope="col">Hinta</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartBody">
+                            <tr id="emptyCart">
+                                <td colspan="3" class="text-center">
+                                    <img style="height: 500px;" src="./Assets/img/empty-cart.png" alt="empty-cart">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr class="container">
+                    <div id="checkout">
+                        <button id="clearCartBtn" onclick="clearCart()" class="hero-btn">Tyhjennä ostoskori</button>
+                        <div class="d-flex justify-content-between align-items-center m-5">
+                            <h4 class="fw-bolder">Hinta yhteensä</h4>
+                            <h4 id="totalPrice" class="fw-bolder">$0.00</h4>
+                        </div>
+                        <button onclick="showAnimation()" id="checkoutBtn" class="hero-btn">Osta nyt</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr id="bottom-hr" class="container">
+            <div id="bottom-footer" class="container" style="margin: 3rem auto;">
+                © 2023 AI-kenkäkauppa - kaikki oikeudet pidätetään ja kaikki pidätetyt oikeuteen
+            </div>
+        </div>
+    </div>
+
+</body>
+<!-- bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+<script src="./Assets/js/app.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</html>
